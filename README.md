@@ -4,6 +4,11 @@
 
     NODE_ENV=development DEBUG=ms_pc_order:* ./bin/www
 
+or with nodemon
+
+    npm install nodemon -g
+    NODE_ENV=development DEBUG=ms_pc_order:* nodemon ./bin/www
+
 ### Installation ###
 
     npm install
@@ -13,6 +18,16 @@
 
     db-migrate up --config config/database.json
 
+
+# Testing #
+
+install mocha
+
+    npm install mocha -g
+
+**running the tests**
+
+    npm test
 
 # API #
 
