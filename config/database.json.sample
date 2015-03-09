@@ -1,0 +1,9 @@
+{
+  "development": {
+    "driver": "mysql",
+    "user": "root",
+    "password": "",
+    "database":"ms_pc_order",
+    "port": 3306
+  }
+}
