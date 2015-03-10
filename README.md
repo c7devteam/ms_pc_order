@@ -49,6 +49,7 @@ install mocha
  * billing[city] - string
  * source_image_file - MULTIPART file
  * body_back - text
+ * email - string
 
 
 

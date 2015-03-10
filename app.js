@@ -18,13 +18,14 @@ var NODE_ENV = (process.env.NODE_ENV || 'development');
 
 // setting up database
 var mysql = require('mysql'); // node-mysql module
+
 var myConnection = require('express-myconnection'); // express-myconnection module
     var dbOptions = {
-      host: db_config.host,
-      user: db_config.user,
-      password: db_config.password,
-      port: db_config.port,
-      database: db_config.db_name
+      host: db_config[NODE_ENV].host,
+      user: db_config[NODE_ENV].user,
+      password: db_config[NODE_ENV].password,
+      port: db_config[NODE_ENV].port,
+      database: db_config[NODE_ENV].database
     };
 
 app.use(myConnection(mysql, dbOptions, 'single'));

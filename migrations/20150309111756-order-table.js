@@ -3,7 +3,7 @@ var type = dbm.dataType;
 
 exports.up = function(db, callback) {
   db.createTable('post_card_orders', {
-    id: { type: 'int', primaryKey: true },
+    id: { type: 'int', primaryKey: true,autoIncrement: true },
     delivery_address_line_1: 'text',
     delivery_address_line_2: 'text',
     delivery_address_city: 'text',
@@ -25,7 +25,9 @@ exports.up = function(db, callback) {
     cover_file: "string",
     billing_file: "string",
     source_image_file: "string",
-    body_back: "text"
+    body_back: "text",
+    email: "string",
+    user_id: "int"
 
   }, callback);
 };
