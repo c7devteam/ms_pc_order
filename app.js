@@ -8,6 +8,8 @@ var expressValidator = require('express-validator')
 
 var routes = require('./routes/index');
 var orders_v1 = require('./routes/v1/orders');
+var authentication_v1 = require('./routes/v1/authentication');
+var signup_v1 = require('./routes/v1/signup');
 
 var db_config = require('./config/database.json');
 
@@ -44,8 +46,18 @@ app.use(expressValidator({}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// we disable CORS and allow
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+    next();
+});
+
 app.use('/', routes);
 app.use('/api/v1/orders',orders_v1);
+app.use('/api/v1/authorize',authentication_v1);
+app.use('/api/v1/signup',signup_v1);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
